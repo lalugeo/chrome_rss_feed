@@ -1,6 +1,6 @@
 # Feed Notifier
 A browser extension for chrome.
-
+ [Get it in Chrome Web Store](https://chrome.google.com/webstore/detail/feed-notifier/ahkhbblclifmlpabaogeigkcbpldnacf)
 
 [![GitHub release](https://img.shields.io/github/release/lalugeo/chrome_rss_feed.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/lalugeo/chrome_rss_feed/total.svg)]()
