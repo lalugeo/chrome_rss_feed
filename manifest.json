@@ -15,8 +15,20 @@
     "default_popup": "render/configure_feeder.html"
   },
   "permissions": [
-    "activeTab",
-    "storage"
+    "alarms",
+    "background",
+    "notifications",
+    "storage",
+    "notifications"
   ],
-  "author":"Lalu George, lalugeorge88@gmail.com"
+  "author":"Lalu George, lalugeorge88@gmail.com",
+  "background": {
+    "scripts": [
+      "kernel/kernel.js",
+      "kernel/notifications/all_notifs.js",
+      "kernel/feed/feed_controller.js",
+      "kernel/feed/feed_reader.js"
+    ],
+    "persistent": false
+  }
 }
