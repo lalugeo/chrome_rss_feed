@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Feed Notifier",
+  "description": "Get live feed notifications from any RSS feeds.",
+  "version": "0.0.1",
+
+  "icons": { "16": "ico/icon16.png",
+             "48": "ico/icon48.png",
+            "128": "ico/icon128.png" },
+
+  "browser_action": {
+    "default_icon": "ico/icon128.png",
+    "default_popup": "render/configure_feeder.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "author":"Lalu George, lalugeorge88@gmail.com"
+}

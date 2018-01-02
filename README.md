@@ -1,4 +1,4 @@
-# chrome rss feed
+# Feed Notifier
 
 [![GitHub release](https://img.shields.io/github/release/lalugeo/chrome_rss_feed.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/lalugeo/chrome_rss_feed/total.svg)]()
@@ -15,4 +15,5 @@
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/users/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
 
-
+A browser extension for chrome.
+Get live feed notifications from any RSS feeds.
