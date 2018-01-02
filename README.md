@@ -14,8 +14,8 @@ A browser extension for chrome.
 [![Coveralls github](https://img.shields.io/coveralls/github/lalugeo/chrome_rss_feed.svg)]()
 [![](https://img.shields.io/github/issues-raw/lalugeo/chrome_rss_feed.svg)]()
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
 
 
 
