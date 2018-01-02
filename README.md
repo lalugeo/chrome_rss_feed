@@ -10,5 +10,5 @@
 [![license](https://img.shields.io/github/license/lalugeo/chrome_rss_feed.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/users/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
+[![Travis](https://img.shields.io/travis/lalugeo/chrome_rss_feed.svg)]()
 [![Coveralls github](https://img.shields.io/coveralls/github/lalugeo/chrome_rss_feed.svg)]()
