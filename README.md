@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/lalugeo/chrome_rss_feed.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/lalugeo/chrome_rss_feed/total.svg)]()
-[![license](https://img.shields.io/github/license/lalugeo/chrome_rss_feed.svg)](./LICENSE.md)
+[![license](https://img.shields.io/github/license/lalugeo/chrome_rss_feed.svg)](./LICENSE)
 
 [![GitHub forks](https://img.shields.io/github/forks/lalugeo/chrome_rss_feed.svg?style=social&label=Fork)]()
 [![GitHub stars](https://img.shields.io/github/stars/lalugeo/chrome_rss_feed.svg?style=social&label=Stars)]()
