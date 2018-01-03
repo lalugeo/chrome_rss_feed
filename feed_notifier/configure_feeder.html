@@ -1,0 +1,28 @@
+<!doctype html>
+<html data-ng-app="feedNotifier" ng-csp="">
+  <head>
+    <title>Feed Notifier</title>
+    <link rel="stylesheet" media="all" href="css/bootstrap.css">
+    <link rel="stylesheet" media="all" href="css/main.css">
+    <base target="_blank">
+  </head>
+
+  <body data-ng-controller="FeedsConfigurer">
+    <nav>
+      <h3>Configure RSS Feeds</h3>
+      <button id="add-new-feed" class="btn" data-ng-click="AddNewFeed()">Add New Feed</button>
+    </nav>
+    <section id="main">
+      <ul>
+        <li data-ng-repeat="feed in feeds">
+          <img data-ng-src="{{feed.icon}}"> <a href="{{feed.url}}">{{feed.desc}}</a>  {{feed.interval}}
+          <span class="date">{{feed.updatedDate}}</span>
+        </li>
+      </ul>
+
+      <script src="lib/angular-1.1.0.min.js"></script>
+      <script src="js/configure_feeder.js"></script>
+      <script src="kernel/feed_controller.js"></script>
+      <script src="kernel/feed_reader.js"></script>
+  </body>
+</html>
