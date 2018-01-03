@@ -20,7 +20,23 @@ var FeedController=(function(){
         "icon":"",
         "url":"https://gmail.com",
         "interval":"20",
-        "updatedDate":"2017 March 12"
+        "updatedDate":"2017 Mar 12"
+      },
+      {
+        "id":"twitter",
+        "desc":"My tweets",
+        "icon":"",
+        "url":"https://gmail.com",
+        "interval":"45",
+        "updatedDate":"2018 Jan 02"
+      },
+      {
+        "id":"fb",
+        "desc":"My posts",
+        "icon":"",
+        "url":"https://gmail.com",
+        "interval":"10",
+        "updatedDate":"2016 Feb 17"
       }
     ];
   };

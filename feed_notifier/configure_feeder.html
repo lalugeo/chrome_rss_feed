@@ -7,33 +7,21 @@
     <base target="_blank">
   </head>
 
-  <body data-ng-controller="FeedsConfigurer">
-    <nav>
-      <h3>Configure RSS Feeds</h3>
-      <a class="btn-floating btn-large waves-effect waves-light red" data-ng-click="AddNewFeed()"><i class="material-icons">add</i></a>
-    </nav>
-    <div class="collection">
-      <a data-ng-repeat="feed in feeds" href="#!" class="collection-item">
-        <span class="badge">{{feed.interval}}</span>
-        {{feed.desc}}
-      </a>
-      <div class="fixed-action-btn horizontal click-to-toggle">
-        <a class="btn-floating btn-large red">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
-      </div>
-    </div>
-      <script src="lib/angular-1.1.0.min.js"></script>
-      <script src="js/configure_feeder.js"></script>
-      <script src="kernel/feed/feed_controller.js"></script>
-      <script src="kernel/feed/feed_reader.js"></script>
-      <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="css/materialize/js/materialize.min.js"></script>
+  <body data-ng-controller="FeedsConfigurer" >
+    <h4>Configure RSS Feeds</h4>
+    <a class="btn-floating btn-large waves-effect waves-light red" data-ng-click="AddNewFeed()"><i class="material-icons">add</i></a>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li data-ng-repeat="feed in feeds">
+        <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.interval}}</span></div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      </li>
+    </ul>
+
+    <script src="lib/angular-1.1.0.min.js"></script>
+    <script src="js/configure_feeder.js"></script>
+    <script src="kernel/feed/feed_controller.js"></script>
+    <script src="kernel/feed/feed_reader.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="css/materialize/js/materialize.min.js"></script>
   </body>
 </html>
