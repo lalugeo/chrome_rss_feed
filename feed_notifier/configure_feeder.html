@@ -15,7 +15,7 @@
       <i class="material-icons center">add</i>
     </a>
   </div>
-    <ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible">
       <li data-ng-repeat="feed in feeds">
         <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.items_unread}}</span></div>
         <div class="collapsible-body">
@@ -23,27 +23,27 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="My Gmails" id="feed_desc" type="text" data-length="30" class="validate" value="{{feed.desc}}">
+                  <input id="feed_desc" type="text" data-length="30" class="validate" ng-value="feed.desc">
                   <label for="feed_desc" data-error="description too long">Description</label>
                 </div>
                 <div class="input-field col s6">
-                  <input placeholder="https://gmail.com" id="feed_url" type="url" class="validate" value="{{feed.url}}">
+                  <input id="feed_url" type="url" class="validate" ng-value="feed.url">
                   <label for="feed_url" data-error="url is not valid">Feed URL</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="feed_username" type="text" value="{{feed.username}}">
+                  <input id="feed_username" type="text" ng-value="feed.username">
                   <label for="feed_username">Username (optional)</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="feed_password" type="password" value="{{feed.password}}">
+                  <input id="feed_password" type="password" ng-value="feed.password">
                   <label for="feed_password">Password (optional)</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="10" id="feed_interval" type="number" class="validate" value="{{feed.interval}}">
+                  <input id="feed_interval" type="number" class="validate" ng-value="feed.interval">
                   <label for="feed_interval">Check Frequency (secs)</label>
                 </div>
                 <!-- div class="input-field col s4">
@@ -61,12 +61,12 @@
               </div>
               <div class="row">
                 <div class="switch col s6">
-                  <button class="btn waves-effect waves-light red" type="submit" name="action">Delete
+                  <button class="btn waves-effect waves-light red" type="submit" name="action" data-ng-click="DeleteFeed(feed.id)">Delete
                     <i class="material-icons right">delete</i>
                   </button>
                 </div>
                 <div class="switch col s6">
-                  <button class="btn waves-effect waves-light green" type="submit" name="action">Save
+                  <button class="btn waves-effect waves-light green" type="submit" name="action" data-ng-click="SaveFeed(feed.id)">Save
                     <i class="material-icons right">save</i>
                   </button>
                 </div>
@@ -77,7 +77,7 @@
       </li>
     </ul>
 
-    <script src="lib/angular-1.1.0.min.js"></script>
+    <script src="lib/angular-1.5.6.min.js"></script>
     <script src="js/configure_feeder.js"></script>
     <script src="kernel/feed/feed_controller.js"></script>
     <script src="kernel/feed/feed_reader.js"></script>
