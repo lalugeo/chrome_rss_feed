@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
+<html data-ng-app="feedNotifier" ng-csp="">
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Feed Notifier</title>
     <style type="text/css">
       body {
         margin: 10px;
@@ -19,17 +19,25 @@
       }
     </style>
 
-    <script src="configure_feeder.js"></script>
-  
+    <link rel="stylesheet" media="all" href="css/bootstrap.css">
+    <link rel="stylesheet" media="all" href="css/main.css">
+    <base target="_blank">
   </head>
 
-  <body>
-    <h1>Configure RSS Feeds</h1>
-    <div id="container">
-        <span>This is a beta version extension, and still in development. Please check <a href="https://github.com/lalugeo/chrome_rss_feed">here</a> for latest releases</span>
+  <body data-ng-controller="FeedsConfigurer">
+    <section id="main">
+      <nav>
+        <h3>Configure RSS Feeds</h3>
+        <button id="add-new-feed" class="btn" data-ng-click="AddNewFeed()">Add New Feed</button>
+      </nav>
+      <ul>
+        <li data-ng-repeat="feed in feeds">
+          <img data-ng-src="{{feed.icon}}"> <a href="{{feed.alternateLink}}">{{feed.title}}</a>  {{feed.size}}
+          <span class="date">{{feed.updatedDate}}</span>
+        </li>
+      </ul>
 
-
-
-    </div>
+      <script src="lib/angular-1.1.0.min.js"></script>
+      <script src="js/configure_feeder.js"></script>
   </body>
 </html>
