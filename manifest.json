@@ -19,7 +19,7 @@
   "browser_action": {
     "default_icon": "feed_notifier/ico/icon128.png",
     "default_popup": "feed_notifier/configure_feeder.html"
-  },
+  },  
   "author":"Lalu George, lalugeorge88@gmail.com",
   "background": {
     "scripts": [
