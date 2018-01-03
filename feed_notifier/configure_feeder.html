@@ -8,12 +8,72 @@
   </head>
 
   <body data-ng-controller="FeedsConfigurer" >
-    <h4>Configure RSS Feeds</h4>
-    <a class="btn-floating btn-large waves-effect waves-light red" data-ng-click="AddNewFeed()"><i class="material-icons">add</i></a>
+    <h5 class="center-align">Configure RSS Feeds</h5>
+    <h6 class="center-align">Alpha version. Please check <a href="https://github.com/lalugeo/chrome_rss_feed">here</a> for more releases</h6>
+    <div class="right-align">
+    <a class="btn-floating waves-effect waves-light orange" data-ng-click="AddNewFeed()">
+      <i class="material-icons center">add</i>
+    </a>
+  </div>
     <ul class="collapsible" data-collapsible="accordion">
       <li data-ng-repeat="feed in feeds">
-        <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.interval}}</span></div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.items_unread}}</span></div>
+        <div class="collapsible-body">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="My Gmails" id="feed_desc" type="text" data-length="30" class="validate" value="{{feed.desc}}">
+                  <label for="feed_desc" data-error="description too long">Description</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="https://gmail.com" id="feed_url" type="url" class="validate" value="{{feed.url}}">
+                  <label for="feed_url" data-error="url is not valid">Feed URL</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="feed_username" type="text" value="{{feed.username}}">
+                  <label for="feed_username">Username (optional)</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="feed_password" type="password" value="{{feed.password}}">
+                  <label for="feed_password">Password (optional)</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="10" id="feed_interval" type="number" class="validate" value="{{feed.interval}}">
+                  <label for="feed_interval">Check Frequency (secs)</label>
+                </div>
+                <!-- div class="input-field col s4">
+                  <input placeholder="5" id="feed_maxitems" type="number" class="validate" value="{{feed.maxitems}}">
+                  <label for="feed_maxitems">Max items shown in a notification</label>
+                </div -->
+                <div class="switch col s6">
+                  <label>
+                    Inactive
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Active
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="switch col s6">
+                  <button class="btn waves-effect waves-light red" type="submit" name="action">Delete
+                    <i class="material-icons right">delete</i>
+                  </button>
+                </div>
+                <div class="switch col s6">
+                  <button class="btn waves-effect waves-light green" type="submit" name="action">Save
+                    <i class="material-icons right">save</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </li>
     </ul>
 

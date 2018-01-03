@@ -1,6 +1,5 @@
 var feedNotifier = angular.module('feedNotifier', []);
 
-
 function FeedsConfigurer($scope, $http){
   $scope.feeds = [];
 
@@ -12,6 +11,12 @@ function FeedsConfigurer($scope, $http){
   };
 
 
+  $scope.AddNewFeed=function(){
+    console.log("adding new feed");
+    return new Promise(function(resolve,reject){
+      FeedController.InsertNewFeed();
+    }).then($scope.LoadFeeds);
+  };
 
   $scope.LoadFeeds();
 }

@@ -8,37 +8,28 @@ var FeedController=(function(){
 
   var _CurrentFeeds=[];
 
-  _FeedController.InsertNewFeedForMonitoring=function(feed){
+  var GetNewFeedId=function(){
+      return 100;
+  };
 
+  _FeedController.InsertNewFeed=function(){
+    _CurrentFeeds.push({
+      "id":GetNewFeedId(),
+      "desc":"new feed",
+      "icon":"",
+      "url":"",
+      "interval":"20",
+      "items_unread":"Not configured",
+      "updatedDate":"",
+      "active":false
+    });
   };
 
   _FeedController.GetAllFeeds=function(feed){
-    return [
-      {
-        "id":"gmail",
-        "desc":"My email",
-        "icon":"",
-        "url":"https://gmail.com",
-        "interval":"20",
-        "updatedDate":"2017 Mar 12"
-      },
-      {
-        "id":"twitter",
-        "desc":"My tweets",
-        "icon":"",
-        "url":"https://gmail.com",
-        "interval":"45",
-        "updatedDate":"2018 Jan 02"
-      },
-      {
-        "id":"fb",
-        "desc":"My posts",
-        "icon":"",
-        "url":"https://gmail.com",
-        "interval":"10",
-        "updatedDate":"2016 Feb 17"
-      }
-    ];
+    if(_CurrentFeeds.length===0){
+      _FeedController.InsertNewFeed();
+    }
+    return _CurrentFeeds;
   };
 
   _FeedController.GetAFeed=function(feedId){
