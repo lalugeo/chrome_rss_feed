@@ -6,14 +6,14 @@ var Notifications=(function(){
       type: "basic",
       title: "Feed Notifier added",
       message: "Feed notifier has been added to your browser. Please start by configuring as many RSS feeds that you want :) ",
-      iconUrl: "ico/icon48.png"
+      iconUrl: "/feed_notifier/ico/icon48.png"
     },
 
     "InitController":{
       type: "basic",
       title: "InitController",
       message: "InitController",
-      iconUrl: "ico/icon48.png"
+      iconUrl: "/feed_notifier/ico/icon48.png"
     },
 
 
@@ -21,7 +21,7 @@ var Notifications=(function(){
       type: "basic",
       title: "RegisterAllFeeds",
       message: "RegisterAllFeeds",
-      iconUrl: "ico/icon48.png"
+      iconUrl: "/feed_notifier/ico/icon48.png"
     }
 
   };

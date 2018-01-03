@@ -13,7 +13,16 @@ var FeedController=(function(){
   };
 
   _FeedController.GetAllFeeds=function(feed){
-
+    return [
+      {
+        "id":"gmail",
+        "desc":"My email",
+        "icon":"",
+        "url":"https://gmail.com",
+        "interval":"20",
+        "updatedDate":"2017 March 12"
+      }
+    ];
   };
 
   _FeedController.GetAFeed=function(feedId){

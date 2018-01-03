@@ -43,8 +43,6 @@ body ::-webkit-scrollbar-corner {
 body {
   padding: 0 15px 15px 15px;
   overflow: hidden;
-  background: url(../img/google_drive_bg.png) no-repeat center center,
-              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));
   background-size: 270px 215px, 100%;
   font-family: 'Droid Sans', sans-serif;
 }
@@ -120,7 +118,7 @@ li {
   -webkit-app-region: no-drag;
 }
 
-nav > h2 {
+nav > h3 {
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
