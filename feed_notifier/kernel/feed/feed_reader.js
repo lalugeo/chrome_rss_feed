@@ -7,24 +7,34 @@ var FeedReader=(function(){
   var _FeedReader={};
 
   _FeedReader.RegisterNewFeed=function(feed){
+    return new Promise(function(resolve,reject){
 
+    });
   };
 
 
   _FeedReader.UnRegisterFeed=function(feed){
+    return new Promise(function(resolve,reject){
 
+    });
   };
 
   _FeedReader.RegisterAllFeeds=function(){
-    Notifications.Show("RegisterAllFeeds");
+    return new Promise(function(resolve,reject){
+
+    });
   };
 
   _FeedReader.UnRegisterAllFeeds=function(){
+    return new Promise(function(resolve,reject){
 
+    });
   };
 
   _FeedReader.ReadFeed=function(feed){
+    return new Promise(function(resolve,reject){
 
+    });
   };
 
   return _FeedReader;

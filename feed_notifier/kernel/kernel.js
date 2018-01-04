@@ -30,12 +30,18 @@ chrome.runtime.onStartup.addListener(function() {
     //   },
     //   frame: 'none'
     // });
+    console.log("got startup");
+    FeedController.Init()
+    .then(FeedReader.RegisterAllFeeds)
+    ;
+    Notifications.Show("WelcomeMessage");
 });
 
 
 chrome.runtime.onInstalled.addListener(function() {
   console.log("Installed the runtime for feed notifier");
-  FeedController.Init();
-  FeedReader.RegisterAllFeeds();
+  FeedController.Init()
+  .then(FeedReader.RegisterAllFeeds)
+  ;
   Notifications.Show("WelcomeMessage");
 });
