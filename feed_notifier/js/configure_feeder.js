@@ -19,7 +19,6 @@ feedNotifier.controller("FeedsConfigurer",
         FeedController.InsertNewFeed();
         resolve();
       });
-      //.then($scope.BindFeeds);
     };
 
     $scope.DeleteFeed=function(feedId){
@@ -30,13 +29,12 @@ feedNotifier.controller("FeedsConfigurer",
       });
     };
 
-    $scope.SaveFeed=function(){
-      //console.log("saving feed " + JSON.stringify(feed));
+    $scope.SaveFeed=function(feedId){
+      console.log("saving feed " + feedId);
       return new Promise(function(resolve,reject){
-        //FeedController.UpdateAFeed(feed);
+        FeedController.UpdateAFeed(feedId);
         resolve();
       });
-      //.then($scope.BindFeeds);
     };
 
     $scope.BindFeeds();

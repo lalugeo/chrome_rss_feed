@@ -21,7 +21,7 @@ var FeedController=(function(){
       "interval":"34",
       "items_unread":"Not configured, ",
       "updatedDate":"",
-      "active":false
+      "active":true
     });
   };
 
