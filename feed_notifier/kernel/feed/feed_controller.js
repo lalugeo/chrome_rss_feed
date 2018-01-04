@@ -18,10 +18,10 @@ var FeedController=(function(){
       "desc":"",
       "icon":"",
       "url":"",
-      "interval":"34",
-      "items_unread":"Not configured, ",
+      "interval":"",
+      "items_unread":0,
       "updatedDate":"",
-      "active":true
+      "active":false
     });
   };
 
