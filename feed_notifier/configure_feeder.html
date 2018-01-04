@@ -2,27 +2,86 @@
 <html data-ng-app="feedNotifier" ng-csp="">
   <head>
     <title>Feed Notifier</title>
-    <link rel="stylesheet" media="all" href="css/bootstrap.css">
-    <link rel="stylesheet" media="all" href="css/main.css">
+    <link href="css/googleapis_material_icons.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize/css/materialize.min.css"  media="screen,projection"/>
     <base target="_blank">
   </head>
 
-  <body data-ng-controller="FeedsConfigurer">
-    <nav>
-      <h3>Configure RSS Feeds</h3>
-      <button id="add-new-feed" class="btn" data-ng-click="AddNewFeed()">Add New Feed</button>
-    </nav>
-    <section id="main">
-      <ul>
-        <li data-ng-repeat="feed in feeds">
-          <img data-ng-src="{{feed.icon}}"> <a href="{{feed.url}}">{{feed.desc}}</a>  {{feed.interval}}
-          <span class="date">{{feed.updatedDate}}</span>
-        </li>
-      </ul>
+  <body data-ng-controller="FeedsConfigurer" >
+    <h5 class="center-align">Configure RSS Feeds</h5>
+    <h6 class="center-align">Alpha version. Please check <a href="https://github.com/lalugeo/chrome_rss_feed">here</a> for more releases</h6>
+    <div class="right-align">
+    <a class="btn-floating waves-effect waves-light orange" data-ng-click="AddNewFeed()">
+      <i class="material-icons center">add</i>
+    </a>
+  </div>
+    <ul class="collapsible">
+      <li data-ng-repeat="feed in feeds">
+        <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.items_unread}}</span></div>
+        <div class="collapsible-body">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="feed_desc" type="text" data-length="30" class="validate" ng-value="feed.desc">
+                  <label for="feed_desc" data-error="description too long">Description</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="feed_url" type="url" class="validate" ng-value="feed.url">
+                  <label for="feed_url" data-error="url is not valid">Feed URL</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="feed_username" type="text" ng-value="feed.username">
+                  <label for="feed_username">Username (optional)</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="feed_password" type="password" ng-value="feed.password">
+                  <label for="feed_password">Password (optional)</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="feed_interval" type="number" class="validate" ng-value="feed.interval">
+                  <label for="feed_interval">Check Frequency (secs)</label>
+                </div>
+                <!-- div class="input-field col s4">
+                  <input placeholder="5" id="feed_maxitems" type="number" class="validate" value="{{feed.maxitems}}">
+                  <label for="feed_maxitems">Max items shown in a notification</label>
+                </div -->
+                <div class="switch col s6">
+                  <label>
+                    Inactive
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Active
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="switch col s6">
+                  <button class="btn waves-effect waves-light red" type="submit" name="action" data-ng-click="DeleteFeed(feed.id)">Delete
+                    <i class="material-icons right">delete</i>
+                  </button>
+                </div>
+                <div class="switch col s6">
+                  <button class="btn waves-effect waves-light green" type="submit" name="action" data-ng-click="SaveFeed(feed.id)">Save
+                    <i class="material-icons right">save</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
 
-      <script src="lib/angular-1.1.0.min.js"></script>
-      <script src="js/configure_feeder.js"></script>
-      <script src="kernel/feed_controller.js"></script>
-      <script src="kernel/feed_reader.js"></script>
+    <script src="lib/angular-1.5.6.min.js"></script>
+    <script src="js/configure_feeder.js"></script>
+    <script src="kernel/feed/feed_controller.js"></script>
+    <script src="kernel/feed/feed_reader.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="css/materialize/js/materialize.min.js"></script>
   </body>
 </html>

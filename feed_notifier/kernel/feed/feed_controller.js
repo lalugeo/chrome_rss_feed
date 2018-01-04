@@ -8,25 +8,35 @@ var FeedController=(function(){
 
   var _CurrentFeeds=[];
 
-  _FeedController.InsertNewFeedForMonitoring=function(feed){
+  var GetNewFeedId=function(){
+      return (new Date()).getTime();
+  };
 
+  _FeedController.InsertNewFeed=function(){
+    _CurrentFeeds.push({
+      "id":GetNewFeedId(),
+      "desc":"",
+      "icon":"",
+      "url":"",
+      "interval":"34",
+      "items_unread":"Not configured, ",
+      "updatedDate":"",
+      "active":false
+    });
   };
 
   _FeedController.GetAllFeeds=function(feed){
-    return [
-      {
-        "id":"gmail",
-        "desc":"My email",
-        "icon":"",
-        "url":"https://gmail.com",
-        "interval":"20",
-        "updatedDate":"2017 March 12"
-      }
-    ];
+    return _CurrentFeeds;
   };
 
   _FeedController.GetAFeed=function(feedId){
-    return feed;
+    _CurrentFeeds.forEach(function(feed){
+      if(feed.id===feedId){
+        return feed;
+      }
+    });
+
+    throw new Error("No such feed (" + feedId + ")!");
   };
 
 
@@ -34,8 +44,30 @@ var FeedController=(function(){
     Notifications.Show("InitController");
   };
 
-  _FeedController.UpdateAFeed=function(feed){
+  _FeedController.UpdateAFeed=function(feedUpdated){
+    _CurrentFeeds.forEach(function(feed){
+      if(feed.id===feedUpdated.id){
+        for(var prop in feedUpdated){
+          if(feedUpdated.hasOwnProperty(prop)){
+            feed[prop]=feedUpdated[prop];
+          }
+        }
+        console.log("feed " + feedUpdated.id + " updated!");
+        return;
+      }
+    });
+  };
 
+  _FeedController.DeleteAFeed=function(feedId){
+    var feed_index=0;
+    _CurrentFeeds.forEach(function(feed){
+      if(feed.id===feedId){
+        _CurrentFeeds.splice(feed_index,1);
+        console.log("feed " + feedId + " deleted!");
+        return;
+      }
+      feed_index++;
+    });
   };
 
   return _FeedController;
