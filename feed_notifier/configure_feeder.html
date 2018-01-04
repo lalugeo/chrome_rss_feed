@@ -7,7 +7,7 @@
     <base target="_blank">
   </head>
 
-  <body data-ng-controller="FeedsConfigurer" >
+  <body data-ng-controller="FeedsConfigurer">
     <h5 class="center-align">Configure RSS Feeds</h5>
     <h6 class="center-align">Alpha version. Please check <a href="https://github.com/lalugeo/chrome_rss_feed">here</a> for more releases</h6>
     <div class="right-align">
@@ -17,33 +17,36 @@
   </div>
     <ul class="collapsible">
       <li data-ng-repeat="feed in feeds">
-        <div class="collapsible-header">{{feed.desc}}<span class="new badge">{{feed.items_unread}}</span></div>
+        <div class="collapsible-header">
+          {{feed.desc}}
+          <span ng-class="{'new badge': feed.items_unread>0 && feed.active,'badge': feed.items_unread<=0 || !feed.active}" ng-attr-data-badge-caption="{{(feed.active)?'New':'(Inactive)'}}" ng-bind="feed.items_unread"></span>
+        </div>
         <div class="collapsible-body">
           <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="feed_desc" type="text" data-length="30" class="validate" ng-value="feed.desc">
+                  <input id="feed_desc" type="text" data-length="30" class="validate" ng-model="feed.desc">
                   <label for="feed_desc" data-error="description too long">Description</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="feed_url" type="url" class="validate" ng-value="feed.url">
+                  <input id="feed_url" type="url" class="validate" ng-model="feed.url">
                   <label for="feed_url" data-error="url is not valid">Feed URL</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="feed_username" type="text" ng-value="feed.username">
+                  <input id="feed_username" type="text" ng-model="feed.username">
                   <label for="feed_username">Username (optional)</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="feed_password" type="password" ng-value="feed.password">
+                  <input id="feed_password" type="password" ng-model="feed.password">
                   <label for="feed_password">Password (optional)</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="feed_interval" type="number" class="validate" ng-value="feed.interval">
+                  <input id="feed_interval" type="number" class="validate" ng-model="feed.interval">
                   <label for="feed_interval">Check Frequency (secs)</label>
                 </div>
                 <!-- div class="input-field col s4">
@@ -53,7 +56,7 @@
                 <div class="switch col s6">
                   <label>
                     Inactive
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="feed.active" ng-checked="feed.active">
                     <span class="lever"></span>
                     Active
                   </label>
