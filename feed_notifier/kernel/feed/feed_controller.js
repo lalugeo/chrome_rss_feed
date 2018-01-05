@@ -24,6 +24,7 @@ var FeedController=(function(){
       });
     });
   };
+  
 
   _FeedController.InsertNewFeed=function(){
     return new Promise(function(resolve,reject){

@@ -18,7 +18,7 @@
 // });
 
 chrome.runtime.onStartup.addListener(function() {
-  // console.log("got startup");
+  //  console.log("got startup");
   // Notifications.Show("StartupMessage");
     // chrome.windows.create('../render/configure_feeder.html', {
     //   id: "ConfigureFeeder",
