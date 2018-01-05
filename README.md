@@ -1,7 +1,7 @@
 [![GitHub release](https://img.shields.io/github/release/lalugeo/chrome_rss_feed.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/lalugeo/chrome_rss_feed/total.svg)]()
 [![license](https://img.shields.io/github/license/lalugeo/chrome_rss_feed.svg)](./LICENSE.md)
-[![Travis](https://img.shields.io/travis/lalugeo/chrome_rss_feed.svg)]()
+[![Travis](https://travis-ci.org/lalugeo/chrome_rss_feed.svg?branch=master)]()
 [![Coveralls github](https://img.shields.io/coveralls/github/lalugeo/chrome_rss_feed.svg)]()
 [![](https://img.shields.io/github/issues-raw/lalugeo/chrome_rss_feed.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/users/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
