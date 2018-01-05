@@ -17,7 +17,10 @@ jobs:
         - "./node_modules/.bin/eslint **/*.js"
     - stage: health_checks
       env: CHECK=UNIT_TESTS
-      script: 'echo "running tests"'
+      script:
+        - "npm install mocha"
+        - "npm install expect"
+        - "./node_modules/.bin/mocha ./tests/test.js"
     - stage: documentation
       script: 'echo "running documentation"'
     - stage: deploy
