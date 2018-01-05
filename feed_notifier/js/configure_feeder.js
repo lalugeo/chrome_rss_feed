@@ -3,10 +3,6 @@ feedNotifier.controller("FeedsConfigurer",
   function($scope){
     $scope.feeds = [];
 
-    $scope.DisplayError=function(err){
-
-    };
-
     $scope.BindFeeds=function(){
       FeedController.GetAllFeeds()
       .then(function(feeds){
