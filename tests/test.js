@@ -4,20 +4,20 @@ describe("FeedNotifier Suite", function(){
   describe("Kernel", function(){
     describe("Notifications", function(){
       it("T1",function(){
-        expect(1).to.be(1);
+        expect(1).toBe(1);
       });
     });
 
     describe("Feed", function(){
       describe("FeedController", function(){
         it("T1",function(){
-          expect(1).to.be(1);
+          expect(1).toBe(1);
         });
       });
 
       describe("FeedReader", function(){
         it("T1",function(){
-          expect(1).to.be(1);
+          expect(1).toBe(1);
         });
       });
     });
@@ -25,7 +25,7 @@ describe("FeedNotifier Suite", function(){
 
   describe("UI", function(){
     it("T1",function(){
-      expect(1).to.be(1);
+      expect(1).toBe(1);
     });
   });
 
