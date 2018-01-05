@@ -1,42 +1,107 @@
+/* globals chrome */
 /**
-* Module that handles all the opertations related to managing feed configuration in the persistant storage
+* Module that handles all the opertations related to managing feed configuration
+* in the persistant storage
 * @module FeedKernel/FeedController
 */
 
-var FeedController=(function(){
-  var _FeedController={};
+const FeedController = (function FeedController() { // eslint-disable-line no-unused-vars
+  const _FeedController = {};
 
-  var _CurrentFeeds=[];
+  let _CurrentFeeds = [];
+  let _InitMode = true;
 
-  _FeedController.InsertNewFeedForMonitoring=function(feed){
+  const _GetNewFeedId = () => (new Date()).getTime();
 
-  };
+  const _SyncStoragePersistance = () => (
+    new Promise((resolve) => {
+      const feedObj = {
+        Feeds: _CurrentFeeds,
+      };
+      chrome.storage.sync.set(feedObj, () => {
+        // console.log("storage synced");
+        resolve();
+      });
+    })
+  );
 
-  _FeedController.GetAllFeeds=function(feed){
-    return [
-      {
-        "id":"gmail",
-        "desc":"My email",
-        "icon":"",
-        "url":"https://gmail.com",
-        "interval":"20",
-        "updatedDate":"2017 March 12"
+
+  _FeedController.InsertNewFeed = () => (
+    new Promise((resolve) => {
+      _CurrentFeeds.push({
+        id: _GetNewFeedId(),
+        desc: "",
+        icon: "",
+        url: "",
+        interval: "",
+        items_unread: 0,
+        updatedDate: "",
+        active: false,
+      });
+      resolve();
+    }).then(_SyncStoragePersistance)
+  );
+
+  _FeedController.GetAllFeeds = () => (
+    new Promise((resolve) => {
+      if (_InitMode) {
+        chrome.storage.sync.get("Feeds", (feedsObj) => {
+          let _feedsObj = feedsObj;
+          if (!_feedsObj) {
+            _feedsObj = {};
+          }
+          if (!_feedsObj.Feeds) {
+            _feedsObj.Feeds = [];
+          }
+
+          _InitMode = false;
+          _CurrentFeeds = _feedsObj.Feeds;
+          resolve(_CurrentFeeds);
+        });
+      } else {
+        resolve(_CurrentFeeds);
       }
-    ];
-  };
+    })
+  );
 
-  _FeedController.GetAFeed=function(feedId){
-    return feed;
-  };
+  _FeedController.GetAFeed = feedId => (
+    new Promise((resolve, reject) => {
+      _CurrentFeeds.forEach((feed) => {
+        if (feed.id === feedId) {
+          resolve(feed);
+        }
+      });
+      reject(new Error(`No such feed ( ${feedId})!`));
+    })
+  );
 
 
-  _FeedController.Init=function(){
-    Notifications.Show("InitController");
-  };
+  _FeedController.Init = () => (
+    new Promise((resolve) => {
+      resolve();
+    })
+  );
 
-  _FeedController.UpdateAFeed=function(feed){
+  _FeedController.UpdateAFeed = () => (
+    new Promise((resolve) => {
+      resolve();
+    }).then(_SyncStoragePersistance)
+  );
 
-  };
+  _FeedController.DeleteAFeed = feedId => (
+    new Promise((resolve, reject) => {
+      let feedIndex = 0;
+      _CurrentFeeds.forEach((feed) => {
+        if (feed.id === feedId) {
+          _CurrentFeeds.splice(feedIndex, 1);
+          // console.log("feed " + feedId + " deleted!");
+          resolve();
+        }
+        feedIndex += 1;
+      });
+      reject(new Error(`feed ${feedId} not found!`));
+    }).then(_SyncStoragePersistance)
+  );
 
   return _FeedController;
 }());

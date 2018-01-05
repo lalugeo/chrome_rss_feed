@@ -1,1 +1,27 @@
 language: node_js
+node_js: "8"
+stages:
+  - health_checks
+  - name: documentation
+    if: branch = DEV
+  - name: deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: health_checks
+      env: CHECK=LINTING
+      script:
+        - "npm install eslint-config-airbnb"
+        - "npm info eslint-config-airbnb@latest peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install"
+        - "./node_modules/.bin/eslint **/*.js"
+    - stage: health_checks
+      env: CHECK=UNIT_TESTS
+      script:
+        - "npm install mocha"
+        - "npm install expect"
+        - "./node_modules/.bin/mocha ./tests/test.js"
+    - stage: documentation
+      script: 'echo "running documentation"'
+    - stage: deploy
+      script: 'echo "running documentation"'
