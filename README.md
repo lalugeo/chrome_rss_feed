@@ -16,7 +16,7 @@ A browser extension for chrome.
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/users/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
-
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
 
 
 Get live feed notifications from any RSS feeds.
