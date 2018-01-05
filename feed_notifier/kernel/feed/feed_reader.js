@@ -1,41 +1,52 @@
 /**
-* Module that handles all the opertations related to reading, registering and unregisting a feed for notification checks
+* Module that handles all the opertations related to reading, registering and
+* unregisting a feed for notification checks
 * @module FeedKernel/FeedReader
 */
 
-var FeedReader=(function(){
-  var _FeedReader={};
+const FeedReader = (function FeedReader() { // eslint-disable-line no-unused-vars
+  const _FeedReader = {};
 
-  _FeedReader.RegisterNewFeed=function(feed){
-    return new Promise(function(resolve,reject){
+  _FeedReader.RegisterNewFeed = () => ( // use feed
+    new Promise((resolve, reject) => {
+      // todo
+      resolve(); // todo
+      reject(); // todo
+    })
+  );
 
-    });
-  };
 
+  _FeedReader.UnRegisterFeed = () => ( // use feed
+    new Promise((resolve, reject) => {
+      // todo
+      resolve(); // todo
+      reject(); // todo
+    })
+  );
 
-  _FeedReader.UnRegisterFeed=function(feed){
-    return new Promise(function(resolve,reject){
+  _FeedReader.RegisterAllFeeds = () => ( // use feed
+    new Promise((resolve, reject) => {
+      // todo
+      resolve(); // todo
+      reject(); // todo
+    })
+  );
 
-    });
-  };
+  _FeedReader.UnRegisterAllFeeds = () => ( // use feed
+    new Promise((resolve, reject) => {
+      // todo
+      resolve(); // todo
+      reject(); // todo
+    })
+  );
 
-  _FeedReader.RegisterAllFeeds=function(){
-    return new Promise(function(resolve,reject){
-
-    });
-  };
-
-  _FeedReader.UnRegisterAllFeeds=function(){
-    return new Promise(function(resolve,reject){
-
-    });
-  };
-
-  _FeedReader.ReadFeed=function(feed){
-    return new Promise(function(resolve,reject){
-
-    });
-  };
+  _FeedReader.ReadFeed = () => ( // use feed
+    new Promise((resolve, reject) => {
+      // todo
+      resolve(); // todo
+      reject(); // todo
+    })
+  );
 
   return _FeedReader;
 }());
