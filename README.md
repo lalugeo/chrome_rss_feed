@@ -6,10 +6,6 @@ A browser extension for chrome.
 [![Github All Releases](https://img.shields.io/github/downloads/lalugeo/chrome_rss_feed/total.svg)]()
 [![license](https://img.shields.io/github/license/lalugeo/chrome_rss_feed.svg)](./LICENSE.md)
 
-[![GitHub forks](https://img.shields.io/github/forks/lalugeo/chrome_rss_feed.svg?style=social&label=Fork)]()
-[![GitHub stars](https://img.shields.io/github/stars/lalugeo/chrome_rss_feed.svg?style=social&label=Stars)]()
-[![GitHub watchers](https://img.shields.io/github/watchers/lalugeo/chrome_rss_feed.svg?style=social&label=Watch)]()
-
 [![Travis](https://img.shields.io/travis/lalugeo/chrome_rss_feed.svg)]()
 [![Coveralls github](https://img.shields.io/coveralls/github/lalugeo/chrome_rss_feed.svg)]()
 [![](https://img.shields.io/github/issues-raw/lalugeo/chrome_rss_feed.svg)]()
@@ -18,5 +14,8 @@ A browser extension for chrome.
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ahkhbblclifmlpabaogeigkcbpldnacf.svg)]()
 
+[![GitHub forks](https://img.shields.io/github/forks/lalugeo/chrome_rss_feed.svg?style=social&label=Fork)]()
+[![GitHub stars](https://img.shields.io/github/stars/lalugeo/chrome_rss_feed.svg?style=social&label=Stars)]()
+[![GitHub watchers](https://img.shields.io/github/watchers/lalugeo/chrome_rss_feed.svg?style=social&label=Watch)]()
 
 Get live feed notifications from any RSS feeds.
