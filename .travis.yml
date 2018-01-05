@@ -15,9 +15,15 @@ jobs:
         - "npm install eslint-config-airbnb"
         - "npm info eslint-config-airbnb@latest peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install"
         - "./node_modules/.bin/eslint **/*.js"
+jobs:
+  include:
     - stage: documentation
       script: 'echo "running documentation"'
+jobs:
+  include:
     - stage: tests
       script: 'echo "running documentation"'
+jobs:
+  include:
     - stage: deploy
       script: 'echo "running documentation"'
