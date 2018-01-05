@@ -1,1 +1,26 @@
 language: node_js
+stages:
+  - linting
+  - name: documentation
+    if: branch = DEV
+  - tests
+  - name: deploy
+    if: branch = master
+jobs:
+  include:
+    - stage: linting
+      - before_script: 'echo "before linting"'
+      - script: 'echo "running linting"'
+      - after_script: 'echo "after linting"'
+    - stage: documentation
+      - before_script: 'echo "before documentation"'
+      - script: 'echo "running documentation"'
+      - after_script: 'echo "after documentation"'
+    - stage: tests
+      - before_script: 'echo "before documentation"'
+      - script: 'echo "running documentation"'
+      - after_script: 'echo "after documentation"'
+    - stage: deploy
+      - before_script: 'echo "before documentation"'
+      - script: 'echo "running documentation"'
+      - after_script: 'echo "after documentation"'
