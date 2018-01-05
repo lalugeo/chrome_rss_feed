@@ -16,7 +16,7 @@
     </a>
   </div>
     <ul class="collapsible">
-      <li data-ng-repeat="feed in feeds">
+      <li data-ng-repeat="feed in feeds track by feed.id">
         <div class="collapsible-header">
           {{feed.desc}}
           <span ng-class="{'new badge': feed.items_unread>0 && feed.active,'badge': feed.items_unread<=0 || !feed.active}" ng-attr-data-badge-caption="{{(feed.active)?'New':'(Inactive)'}}" ng-bind="feed.items_unread"></span>
