@@ -41,6 +41,8 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
     }).then(_SyncStoragePersistance)
   );
 
+  _FeedController.GetAllFeeds_Sync = () => _CurrentFeeds;
+
   _FeedController.GetAllFeeds = () => (
     new Promise((resolve) => {
       if (_InitMode) {
