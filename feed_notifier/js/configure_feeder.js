@@ -1,4 +1,4 @@
-/* global angular, Materialize, FeedController */
+/* global $, angular, Materialize, FeedController */
 const feedNotifier = angular.module("feedNotifier", []);
 feedNotifier.controller("FeedsConfigurer", ($scope) => {
   $scope.feeds = [];
@@ -47,4 +47,5 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   };
 
   $scope.BindFeeds();
+  $('.collapsible').collapsible();
 });

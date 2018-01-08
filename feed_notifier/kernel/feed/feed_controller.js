@@ -19,7 +19,6 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
         Feeds: _CurrentFeeds,
       };
       chrome.storage.sync.set(feedObj, () => {
-        // console.log("storage synced");
         resolve();
       });
     })
@@ -94,7 +93,6 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
       _CurrentFeeds.forEach((feed) => {
         if (feed.id === feedId) {
           _CurrentFeeds.splice(feedIndex, 1);
-          // console.log("feed " + feedId + " deleted!");
           resolve();
         }
         feedIndex += 1;

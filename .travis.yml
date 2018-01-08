@@ -24,4 +24,4 @@ jobs:
     - stage: documentation
       script: 'echo "running documentation"'
     - stage: deploy
-      script: 'echo "running documentation"'
+      script: 'echo "running deployment"'
