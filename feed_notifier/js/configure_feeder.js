@@ -5,7 +5,6 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   $scope.BindFeeds = () => {
     FeedController.GetAllFeeds()
       .then((feeds) => {
-        // console.log("got feeds " + JSON.stringify(feeds));
         $scope.feeds = feeds;
       })
       .catch((err) => {
@@ -14,7 +13,6 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   };
 
   $scope.AddNewFeed = () => {
-    // console.log("adding new feed");
     FeedController.InsertNewFeed()
       .then(() => {
         Materialize.toast("Feed inserted", 2000);
@@ -25,7 +23,6 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   };
 
   $scope.DeleteFeed = (feedId) => {
-    // console.log("deleting feed " + feedId);
     FeedController.DeleteAFeed(feedId)
       .then(() => {
         Materialize.toast("Feed deleted", 2000);
@@ -36,7 +33,6 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   };
 
   $scope.SaveFeed = (feedId) => {
-    // console.log("saving feed " + feedId);
     FeedController.UpdateAFeed(feedId)
       .then(() => {
         Materialize.toast("Feed saved", 2000);
