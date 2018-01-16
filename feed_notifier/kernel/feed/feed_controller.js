@@ -13,6 +13,12 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
 
   const _GetNewFeedId = () => (new Date()).getTime();
 
+  const _SyncFeedReaders = () => (
+    new Promise((resolve) => {
+      resolve();
+    })
+  );
+
   const _SyncStoragePersistance = () => (
     new Promise((resolve) => {
       const feedObj = {
@@ -87,6 +93,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
     new Promise((resolve) => {
       resolve();
     }).then(_SyncStoragePersistance)
+      .then(_SyncFeedReaders)
   );
 
   _FeedController.DeleteAFeed = feedId => (
