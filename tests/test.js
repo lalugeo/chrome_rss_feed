@@ -12,9 +12,9 @@ describe("FeedNotifier Suite", function(){
       describe("FeedController", function(){
         it("T1",function(){
           // expect(1).toBe(1);
-          require('../feed_notifier/kernel/feed/feed_controller.js');
-
-          FeedController.InsertNewFeed();
+          // require('../feed_notifier/kernel/feed/feed_controller.js');
+          //
+          // FeedController.InsertNewFeed();
         });
       });
 
