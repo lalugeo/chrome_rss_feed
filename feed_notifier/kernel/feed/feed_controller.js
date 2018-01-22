@@ -1,4 +1,4 @@
-/* globals chrome */
+/* globals chrome,FeedReader */
 /**
 * Module that handles all the opertations related to managing feed configuration
 * in the persistant storage
@@ -11,12 +11,11 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
   let _CurrentFeeds = [];
   let _InitMode = true;
 
-  const _GetNewFeedId = () => (new Date()).getTime();
+  const _GetNewFeedId = () => (String(new Date().getTime()));
 
   const _SyncFeedReaders = () => (
-    new Promise((resolve) => {
-      resolve();
-    })
+    FeedReader.UnRegisterAllFeeds(_CurrentFeeds)
+      .then(FeedReader.RegisterAllFeeds)
   );
 
   const _SyncStoragePersistance = () => (
@@ -25,7 +24,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
         Feeds: _CurrentFeeds,
       };
       chrome.storage.sync.set(feedObj, () => {
-        resolve();
+        resolve(_CurrentFeeds);
       });
     })
   );
@@ -38,7 +37,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
         desc: "",
         icon: "",
         url: "",
-        interval: "",
+        interval: 1,
         items_unread: 0,
         updatedDate: "",
         active: false,
@@ -86,7 +85,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
   _FeedController.Init = () => (
     new Promise((resolve) => {
       resolve();
-    })
+    }).then(_FeedController.GetAllFeeds)
   );
 
   _FeedController.UpdateAFeed = () => (
@@ -102,6 +101,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
       _CurrentFeeds.forEach((feed) => {
         if (feed.id === feedId) {
           _CurrentFeeds.splice(feedIndex, 1);
+          FeedReader.UnRegisterFeed(feed);
           resolve();
         }
         feedIndex += 1;

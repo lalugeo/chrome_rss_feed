@@ -9,19 +9,23 @@ const FeedReader = (function FeedReader() { // eslint-disable-line no-unused-var
   const _FeedReader = {};
 
   _FeedReader.RegisterNewFeed = feed => new Promise((resolve) => {
-    chrome.alarms.create(feed.desc, {
-      periodInMinutes: feed.interval,
-    });
-    resolve();
+    if (feed.active) {
+      chrome.alarms.create(feed.id, {
+        periodInMinutes: feed.interval,
+      });
+      resolve(feed);
+    } else {
+      resolve(feed);
+    }
   });
 
 
-  _FeedReader.UnRegisterFeed = feed => new Promise((resolve, reject) => {
-    chrome.alarms.clear(feed.desc, (wasCleared) => {
+  _FeedReader.UnRegisterFeed = feed => new Promise((resolve) => {
+    chrome.alarms.clear(feed.id, (wasCleared) => {
       if (wasCleared) {
-        resolve();
+        resolve(feed);
       } else {
-        reject();
+        resolve(feed);
       }
     });
   });
@@ -29,7 +33,7 @@ const FeedReader = (function FeedReader() { // eslint-disable-line no-unused-var
   _FeedReader.RegisterAllFeeds = (feeds) => {
     const registerAll = [];
     feeds.forEach((feed) => {
-      registerAll.push(_FeedReader.RegisterFeed(feed));
+      registerAll.push(_FeedReader.RegisterNewFeed(feed));
     });
     return Promise.all(registerAll);
   };
@@ -41,14 +45,6 @@ const FeedReader = (function FeedReader() { // eslint-disable-line no-unused-var
     });
     return Promise.all(unregisterAll);
   };
-
-  _FeedReader.ReadFeed = () => ( // use feed
-    new Promise((resolve, reject) => {
-      // todo
-      resolve(); // todo
-      reject(); // todo
-    })
-  );
 
   return _FeedReader;
 }());
