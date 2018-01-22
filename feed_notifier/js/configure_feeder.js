@@ -6,7 +6,9 @@ feedNotifier.controller("FeedsConfigurer", ($scope) => {
   $scope.BindFeeds = () => {
     FeedController.GetAllFeeds()
       .then((feeds) => {
-        $scope.feeds = feeds;
+        $scope.$apply(() => {
+          $scope.feeds = feeds;
+        });
       })
       .catch((err) => {
         Materialize.toast(`Could not fetch the feeds! ${err}`, 4000);

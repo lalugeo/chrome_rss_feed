@@ -5,14 +5,14 @@ const Notifications = (function Notifications() { // eslint-disable-line no-unus
       type: "basic",
       title: "Feed Notifier added",
       message: "Feed notifier has been added to your browser. Please start by configuring as many RSS feeds that you want :) ",
-      iconUrl: "/feed_notifier/ico/icon48.png",
+      iconUrl: "/feed_notifier/ico/icon128.png",
     },
 
     InitController: {
       type: "basic",
       title: "InitController",
       message: "InitController",
-      iconUrl: "/feed_notifier/ico/icon48.png",
+      iconUrl: "/feed_notifier/ico/icon128.png",
     },
 
 
@@ -20,7 +20,14 @@ const Notifications = (function Notifications() { // eslint-disable-line no-unus
       type: "basic",
       title: "RegisterAllFeeds",
       message: "RegisterAllFeeds",
-      iconUrl: "/feed_notifier/ico/icon48.png",
+      iconUrl: "/feed_notifier/ico/icon128.png",
+    },
+
+    NewFeed: {
+      type: "basic",
+      title: "NewFeed",
+      message: "New feed found",
+      iconUrl: "/feed_notifier/ico/icon128.png",
     },
 
   };

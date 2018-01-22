@@ -3,7 +3,7 @@
   "name": "Feed Notifier",
   "description": "Get live feed notifications from any RSS feeds.",
   "short_name": "Feed Notifier",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icons": {
             "16": "feed_notifier/ico/icon16.png",
             "48": "feed_notifier/ico/icon48.png",

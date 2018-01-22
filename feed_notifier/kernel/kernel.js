@@ -8,13 +8,20 @@
 
 chrome.runtime.onStartup.addListener(() => {
   FeedController.Init()
+    .then(FeedReader.UnRegisterAllFeeds)
     .then(FeedReader.RegisterAllFeeds);
   Notifications.Show("WelcomeMessage");
 });
 
-
-chrome.runtime.onInstalled.addListener(() => {
-  FeedController.Init()
-    .then(FeedReader.RegisterAllFeeds);
-  Notifications.Show("WelcomeMessage");
-});
+chrome.alarms.onAlarm.addListener(feedAlarm => (
+  new Promise((resolve, reject) => {
+    chrome.notifications.create({
+      type: "basic",
+      title: "NewFeed",
+      message: `New feed found by kernel ${feedAlarm.name}`,
+      iconUrl: "/feed_notifier/ico/icon128.png",
+    });
+    resolve(feedAlarm); // todo
+    reject(feedAlarm); // todo
+  })
+));
