@@ -1,4 +1,4 @@
-/* globals chrome */
+/* globals chrome,FeedReader */
 /**
 * Module that handles all the opertations related to managing feed configuration
 * in the persistant storage
@@ -11,7 +11,12 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
   let _CurrentFeeds = [];
   let _InitMode = true;
 
-  const _GetNewFeedId = () => (new Date()).getTime();
+  const _GetNewFeedId = () => (String(new Date().getTime()));
+
+  const _SyncFeedReaders = () => (
+    FeedReader.UnRegisterAllFeeds(_CurrentFeeds)
+      .then(FeedReader.RegisterAllFeeds)
+  );
 
   const _SyncStoragePersistance = () => (
     new Promise((resolve) => {
@@ -19,8 +24,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
         Feeds: _CurrentFeeds,
       };
       chrome.storage.sync.set(feedObj, () => {
-        // console.log("storage synced");
-        resolve();
+        resolve(_CurrentFeeds);
       });
     })
   );
@@ -33,7 +37,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
         desc: "",
         icon: "",
         url: "",
-        interval: "",
+        interval: 1,
         items_unread: 0,
         updatedDate: "",
         active: false,
@@ -41,6 +45,8 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
       resolve();
     }).then(_SyncStoragePersistance)
   );
+
+  _FeedController.GetAllFeeds_Sync = () => _CurrentFeeds;
 
   _FeedController.GetAllFeeds = () => (
     new Promise((resolve) => {
@@ -79,13 +85,14 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
   _FeedController.Init = () => (
     new Promise((resolve) => {
       resolve();
-    })
+    }).then(_FeedController.GetAllFeeds)
   );
 
   _FeedController.UpdateAFeed = () => (
     new Promise((resolve) => {
       resolve();
     }).then(_SyncStoragePersistance)
+      .then(_SyncFeedReaders)
   );
 
   _FeedController.DeleteAFeed = feedId => (
@@ -94,7 +101,7 @@ const FeedController = (function FeedController() { // eslint-disable-line no-un
       _CurrentFeeds.forEach((feed) => {
         if (feed.id === feedId) {
           _CurrentFeeds.splice(feedIndex, 1);
-          // console.log("feed " + feedId + " deleted!");
+          FeedReader.UnRegisterFeed(feed);
           resolve();
         }
         feedIndex += 1;
